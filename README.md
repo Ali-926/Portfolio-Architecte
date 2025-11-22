@@ -1,20 +1,33 @@
 # Portfolio-architecte-sophie-bluel
 
-Code du projet 6 d'intégrateur web.
+Ce projet consiste à développer la partie front-end du portfolio d'une architecte d’intérieur et à le connecter à un back-end déjà fourni.  
+L’objectif est d’afficher dynamiquement les travaux, de mettre en place un système de filtres, d’intégrer une page de connexion et d’ajouter les premières fonctionnalités d’administration.
 
-## Architecture
+---
 
-Ce repo git contient les 2 briques logicielles du projet 
-- Frontend
-- Backend
+## 🚀 Fonctionnalités
 
-## Pour le lancer le code
-### Backend
-Ouvrir le dossier Backend et lire le README.md
+- **Affichage dynamique** des travaux depuis l’API.
+- **Filtres interactifs** par catégorie.
+- **Gestion des travaux** via modale (ajout + suppression)
+- **Page de connexion** conforme à la maquette Figma.
+- **Authentification** via API (login + stockage du token).
 
-### Frontend
-Ouvrir le dossier Frontend et lancer liveserver de votre IDE
- 
-## Astuce
- 
-Si vous désirez afficher le code du backend et du frontend, faites le dans 2 instances de VSCode différentes pour éviter tout problème
+---
+
+## 📁 Structure du projet
+
+- **/frontend** — contient les fichiers HTML, CSS et JavaScript du site.
+- **/backend** — serveur Node.js déjà fourni, sert l’API (travaux, catégories, login).
+- **/.vscode** — contient la configuration locale de VS Code.
+- **README.md** — documentation du projet.
+
+---
+
+## 🛠️ Technologies utilisées
+
+- **HTML5**
+- **CSS3**
+- **JavaScript Vanilla**
+- **API Fetch**
+- **Node.js (backend fourni)**
