@@ -90,6 +90,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  scroll-behavior: smooth;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -107,6 +108,7 @@ section {
 }
 body {
   line-height: 1;
+  background-color: #fefef8;
 }
 ol,
 ul {
@@ -143,6 +145,10 @@ section {
   margin: 50px 0;
 }
 
+img {
+  width: 20px;
+}
+
 h1 {
   display: flex;
   flex-direction: column;
@@ -154,8 +160,10 @@ h1 {
 
 h1 > span {
   font-family: "Work Sans";
-  font-size: 10px;
-  letter-spacing: 0.1em;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  margin-top: 5px;
+  font-weight: 400;
 }
 
 h2 {
@@ -170,7 +178,7 @@ nav ul {
   list-style-type: none;
 }
 nav li {
-  padding: 0 10px;
+  padding: 0 20px;
   font-size: 1.2em;
 }
 
@@ -204,13 +212,15 @@ nav ul li a:hover {
 
 #introduction article {
   flex: 1;
+  max-width: 500px;
+  line-height: 1.5;
 }
 #introduction h2 {
   margin-bottom: 1em;
 }
 
 #introduction p {
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 }
 #portfolio h2 {
   text-align: center;
@@ -267,6 +277,10 @@ input[type="submit"] {
   width: 180px;
   text-align: center;
   border-radius: 60px;
+}
+
+footer {
+  background-color: #fff;
 }
 
 footer nav ul {

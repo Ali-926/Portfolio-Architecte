@@ -1,19 +1,19 @@
-/* 1. Récupération des travaux depuis l'API */
+/* ---------------------- 1. Récupération des travaux ---------------------- */
 async function getWorks() {
   const response = await fetch("http://localhost:5678/api/works");
   return await response.json();
 }
 
-/* 2. Récupération des catégories pour créer les filtres */
+/* ---------------------- 2. Récupération des catégories ---------------------- */
 async function getCategories() {
   const response = await fetch("http://localhost:5678/api/categories");
   return await response.json();
 }
 
-/* 3. Affichage de la galerie */
+/* ---------------------- 3. Affichage de la galerie ---------------------- */
 function displayWorks(works) {
   const gallery = document.querySelector(".gallery");
-  gallery.innerHTML = ""; /* vide la galerie */
+  gallery.innerHTML = "";
 
   works.forEach((work) => {
     const figure = document.createElement("figure");
@@ -30,7 +30,7 @@ function displayWorks(works) {
   });
 }
 
-/* 4. Création dynamique des filtres */
+/* ---------------------- 4. Affichage des filtres ---------------------- */
 function displayFilters(categories, works) {
   const portfolioSection = document.querySelector("#portfolio");
 
@@ -72,8 +72,8 @@ function displayFilters(categories, works) {
   );
 }
 
-/* 5. Gestion de l'état actif des boutons */
-function setActiveFilter(selectedBtn) {
+/* ---------------------- 5. Gestion du bouton actif ---------------------- */
+function setActiveFilter(btn) {
   document
     .querySelectorAll(".filter-btn")
     .forEach((btn) => btn.classList.remove("active"));

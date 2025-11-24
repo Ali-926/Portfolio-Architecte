@@ -12,16 +12,21 @@
     />
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
-    <script src="/FrontEnd/script.js"></script>
+    <script src="/FrontEnd/script.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/17f6642d7e.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header>
-      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+      <h1>Sophie Bluel <span>ARCHITECTE D'INTÉRIEUR</span></h1>
       <nav>
         <ul>
-          <li>projets</li>
-          <li>contact</li>
-          <li><a href="login.html">login</a></li>
+          <li><a href="#portfolio">projets</a></li>
+          <li><a href="index.html#contact">contact</a></li>
+          <li class="login-link"><a href="login.html">login</a></li>
+          <li class="logout-link hidden">logout</li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -46,12 +51,18 @@
           </p>
           <p>
             En cas de besoin, une équipe pluridisciplinaire peut-être constituée
-            : architecte DPLG, décorateur(trice)
+            : architecte DPLG, décorateur(trice).
           </p>
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <div class="portfolio-header">
+          <h2>Mes projets</h2>
+          <button class="btn-modify hidden">
+            <i class="fa-regular fa-pen-to-square"></i> modifier
+          </button>
+        </div>
+        <div class="filters"></div>
         <div class="gallery"></div>
       </section>
       <section id="contact">
