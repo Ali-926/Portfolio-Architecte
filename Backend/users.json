@@ -1,0 +1,12 @@
+[
+    {
+        "email": "sophie.bluel@test.tld",
+        "id": 1,
+        "password": "$2b$10$OyUbvsLMHp/gu0kPRpkJ/.757z.DBecw/wd1CE09Y3q4nDjoC7L1e"
+    },
+    {
+        "email": "admin@test.com",
+        "id": 2,
+        "password": "$2a$12$GWuw1VkOwwx3tDdLkc5D5u2MGP4HzyjefI9tNfyMh7tDPbU4FEBJu"
+    }
+]
