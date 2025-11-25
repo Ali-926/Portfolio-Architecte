@@ -34,13 +34,14 @@ function displayWorks(works) {
 function displayFilters(categories, works) {
   const portfolioSection = document.querySelector("#portfolio");
 
-  /* Si les filtres existent déjà, ne pas les recréer */
-  if (document.querySelector(".filters")) return;
+  // Ne jamais bloquer la recréation : permet de recréer les filtres après logout/redirection
+  const oldFilters = document.querySelector(".filters");
+  if (oldFilters) oldFilters.remove();
 
   const filtersContainer = document.createElement("div");
   filtersContainer.classList.add("filters");
 
-  /* Bouton "Tous" */
+  // Bouton "Tous"
   const allBtn = document.createElement("button");
   allBtn.textContent = "Tous";
   allBtn.classList.add("filter-btn", "active");
@@ -51,7 +52,7 @@ function displayFilters(categories, works) {
     displayWorks(works);
   });
 
-  /* Boutons dynamiques */
+  // Boutons dynamiques
   categories.forEach((cat) => {
     const btn = document.createElement("button");
     btn.textContent = cat.name;
@@ -76,17 +77,60 @@ function displayFilters(categories, works) {
 function setActiveFilter(btn) {
   document
     .querySelectorAll(".filter-btn")
-    .forEach((btn) => btn.classList.remove("active"));
-  selectedBtn.classList.add("active");
+    .forEach((b) => b.classList.remove("active"));
+  btn.classList.add("active");
 }
 
-/* 6. Initialisation au chargement */
+/* ---------------------- 6. Logique de connexion / déconnexion ---------------------- */
+function applyLoginState() {
+  const token = localStorage.getItem("token");
+
+  const editBanner = document.querySelector(".edit-banner");
+  const loginLink = document.querySelector(".login-link");
+  const logoutLink = document.querySelector(".logout-link");
+  const filters = document.querySelector(".filters");
+  const btnModify = document.querySelector(".btn-modify");
+
+  if (token) {
+    // MODE CONNECTÉ
+    editBanner?.classList.remove("hidden");
+    btnModify?.classList.remove("hidden");
+
+    loginLink?.classList.add("hidden");
+    logoutLink?.classList.remove("hidden");
+
+    // Masquer les filtres en mode connecté
+    filters?.classList.add("hidden");
+
+    logoutLink.addEventListener("click", () => {
+      localStorage.removeItem("token");
+      window.location.reload();
+    });
+  } else {
+    // MODE DÉCONNECTÉ
+    editBanner?.classList.add("hidden");
+    btnModify?.classList.add("hidden");
+
+    loginLink?.classList.remove("hidden");
+    logoutLink?.classList.add("hidden");
+
+    // Afficher les filtres
+    filters?.classList.remove("hidden");
+  }
+}
+
+/* ---------------------- 7. Initialisation ---------------------- */
 async function init() {
   const works = await getWorks();
   const categories = await getCategories();
 
-  displayWorks(works); /* Afficher la galerie */
-  displayFilters(categories, works); /* Générer les filtres */
+  displayWorks(works);
+
+  // IMPORTANT : Générer les filtres avant d'appliquer l'état connexion
+  displayFilters(categories, works);
+
+  // Maintenant seulement, adapter l'affichage selon le token
+  applyLoginState();
 }
 
 init();
