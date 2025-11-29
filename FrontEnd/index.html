@@ -17,7 +17,6 @@
       crossorigin="anonymous"
       defer
     ></script>
-    <script src="./assets/JS/script.js" defer></script>
   </head>
   <body>
     <!-- Bandeau mode édition -->
@@ -84,7 +83,6 @@
         </form>
       </section>
     </main>
-
     <footer>
       <nav>
         <ul>
@@ -92,5 +90,42 @@
         </ul>
       </nav>
     </footer>
+    <!-- ======================= -->
+    <!--        MODALE          -->
+    <!-- ======================= -->
+    <div class="modal-overlay hidden">
+      <div class="modal">
+        <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+        <!-- --- Galerie de la modale --- -->
+        <div class="modal-gallery-view">
+          <h3>Galerie photo</h3>
+          <div class="modal-gallery"></div>
+          <button class="modal-add-photo-btn">Ajouter une photo</button>
+        </div>
+        <!-- --- Formulaire d'ajout --- -->
+        <div class="modal-add-view hidden">
+          <button class="modal-back">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <h3>Ajout photo</h3>
+          <form class="modal-add-form">
+            <div class="modal-upload-area">
+              <i class="fa-regular fa-image"></i>
+              <input type="file" id="photo-input" accept="image/*" />
+              <label for="photo-input">+ Ajouter photo</label>
+              <p>jpg, png — 4 Mo max</p>
+            </div>
+            <label for="title">Titre</label>
+            <input type="text" id="title" />
+            <label for="category">Catégorie</label>
+            <select id="category"></select>
+            <button type="submit" class="modal-validate-btn">Valider</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- SCRIPT -->
+    <script src="./assets/JS/script.js" defer></script>
+    <script src="./assets/JS/modale.js" defer></script>
   </body>
 </html>
