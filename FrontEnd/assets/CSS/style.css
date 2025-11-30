@@ -145,10 +145,6 @@ section {
   margin: 50px 0;
 }
 
-img {
-  width: 20px;
-}
-
 h1 {
   display: flex;
   flex-direction: column;
@@ -438,4 +434,141 @@ li .active {
 /* ---------- Logout ---------- */
 .logout-link {
   cursor: pointer;
+}
+
+/* =============================== */
+/*            MODALE               */
+/* =============================== */
+
+/* --- Overlay --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.hidden {
+  display: none !important;
+}
+
+/* --- Conteneur de la modale --- */
+.modal {
+  background: white;
+  width: 430px;
+  border-radius: 10px;
+  padding: 30px 80px;
+  position: relative;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Bouton de fermeture */
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Bouton retour */
+.modal-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* --- TITRE --- */
+.modal h3 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+/* =============================== */
+/*     GALERIE DE LA MODALE        */
+/* =============================== */
+.modal-gallery-view {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.modal-gallery figure {
+  position: relative;
+}
+
+.modal-gallery img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: black;
+  border: none;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Bouton ajouter une photo */
+.modal-add-photo-btn {
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background: #1d6154;
+  color: white;
+  font-family: "Syne";
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* =============================== */
+/*          AJOUT PHOTO            */
+/* =============================== */
+.modal-add-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
