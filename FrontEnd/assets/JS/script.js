@@ -17,6 +17,8 @@ function displayWorks(works) {
 
   works.forEach((work) => {
     const figure = document.createElement("figure");
+    figure.dataset.id = work.id;
+
     const img = document.createElement("img");
     img.src = work.imageUrl;
     img.alt = work.title;

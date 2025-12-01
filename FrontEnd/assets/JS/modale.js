@@ -96,11 +96,9 @@ function closeModal() {
 //  AFFICHAGE GALERIE MODALE
 // =============================
 async function showModalGallery() {
-  // aficher/maquer galerie
   modalAddView.classList.add("hidden");
   modalGalleryView.classList.remove("hidden");
 
-  // Fetch travaux galerie modale
   try {
     const res = await fetch(`${API_BASE}/works`);
     if (!res.ok) throw new Error("Impossible de charger les travaux");
@@ -110,6 +108,7 @@ async function showModalGallery() {
 
     works.forEach((work) => {
       const figure = document.createElement("figure");
+      figure.dataset.id = work.id;
 
       const img = document.createElement("img");
       img.src = work.imageUrl;
@@ -158,9 +157,9 @@ async function deleteWork(id) {
       return;
     }
 
-    // actualise modale + page galerie
-    await showModalGallery();
-    if (typeof loadGallery === "function") loadGallery();
+    // ---- SUPPRESSION DIRECTE DU DOM ----
+    removeWorkFromDOM(id);
+
     showMessage("success", "Projet supprimé.");
   } catch (err) {
     console.error(err);
@@ -168,6 +167,17 @@ async function deleteWork(id) {
   }
 }
 
+// =============================
+//  SUPRESSION DOM (galerie + modale)
+// =============================
+function removeWorkFromDOM(id) {
+  // suppression dans la modale
+  document.querySelectorAll(`[data-id="${id}"]`).forEach((el) => el.remove());
+
+  // suppression dans la galerie principale
+  const main = document.querySelector(`figure[data-id="${id}"]`);
+  if (main) main.remove();
+}
 // =============================
 //  NAVIGATION INTERNE
 // =============================
@@ -194,6 +204,7 @@ async function loadCategories() {
     if (!res.ok) throw new Error("Erreur categories");
     const categories = await res.json();
 
+    // reset select
     categorySelect.innerHTML = "";
     const placeholder = document.createElement("option");
     placeholder.value = "";
