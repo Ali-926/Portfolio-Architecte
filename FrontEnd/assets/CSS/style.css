@@ -572,3 +572,125 @@ li .active {
   flex-direction: column;
   gap: 15px;
 }
+
+/* --- ZONE UPLOAD — VERSION ORIGINALE --- */
+.modal-upload-area {
+  background: #e8f1f7;
+  height: 180px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  overflow: hidden; /* nécessaire pour éviter le débordement */
+  position: relative;
+}
+
+.modal-upload-area i {
+  font-size: 40px;
+  color: #b9c5cc;
+}
+
+.modal-upload-area input[type="file"] {
+  display: none;
+}
+
+.modal-upload-area label {
+  background: #cbd6dc;
+  padding: 10px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal-upload-area p {
+  font-size: 12px;
+  color: #6c6c6c;
+}
+
+/* =============================== */
+/*     AJOUTS POUR LE PREVIEW     */
+/* =============================== */
+
+/* L’image de preview */
+.modal-upload-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none; /* affiché seulement avec .has-preview */
+}
+
+/* Quand une image est chargée */
+.modal-upload-area.has-preview .modal-upload-preview {
+  display: block;
+}
+
+/* On masque les éléments initiaux */
+.modal-upload-area.has-preview i,
+.modal-upload-area.has-preview label,
+.modal-upload-area.has-preview p {
+  display: none;
+}
+
+/* =============================== */
+/*          INPUTS FORM            */
+/* =============================== */
+.modal-add-form input,
+.modal-add-form select {
+  height: 40px;
+  border-radius: 5px;
+  border: 1px #ccc;
+  padding: 8px;
+  margin-bottom: 20px;
+  font-family: "Work Sans";
+  box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.07);
+}
+
+/* =============================== */
+/*           MESSAGES              */
+/* =============================== */
+.modal-message-box {
+  margin-top: -5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.modal-message-box.error {
+  color: red;
+}
+
+.modal-message-box.success {
+  color: green;
+}
+
+/* =============================== */
+/*         BOUTON VALIDER          */
+/* =============================== */
+.modal-validate-btn {
+  width: 50%;
+  margin: 0 auto 0;
+  padding: 10px;
+  border: none;
+  font-family: "Syne";
+  color: white;
+  background: gray;
+  border-radius: 20px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+/* S'active lorsque tout est rempli */
+.modal-validate-btn.active {
+  opacity: 1;
+  background: #1d6154;
+}
+
+/* Masquer l'option placeholder dans la liste déroulante */
+#category option[disabled] {
+  display: none;
+}
+hr {
+  width: 430px;
+}
