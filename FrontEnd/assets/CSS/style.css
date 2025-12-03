@@ -193,6 +193,10 @@ nav ul li a:hover {
   color: #b1663c;
 }
 
+.insta-logo {
+  width: 30px;
+}
+
 #introduction {
   display: flex;
   align-items: center;
@@ -534,6 +538,7 @@ li .active {
   position: absolute;
   top: 5px;
   right: 5px;
+  padding: 1px;
   background: black;
   border: none;
   color: white;
@@ -556,6 +561,40 @@ li .active {
   border-radius: 25px;
   cursor: pointer;
   font-size: 14px;
+}
+
+/* Titre miniature */
+.modal-figure {
+  position: relative;
+  width: 76.41px;
+}
+
+.modal-figure img {
+  width: 100%;
+  display: block;
+}
+
+.modal-figure figcaption.modal-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3px;
+  text-align: center;
+  font-size: 11px;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-figure:hover .modal-caption {
+  opacity: 1;
 }
 
 /* =============================== */
