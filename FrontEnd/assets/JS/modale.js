@@ -140,7 +140,7 @@ function createModalFigure(work) {
 async function deleteWork(id) {
   const token = localStorage.getItem("token");
   if (!token) {
-    showMessage("error", "Vous devez être connecté pour supprimer.");
+    showMessage("error", "Vous devez être connecté pour supprimer un projet.");
     return;
   }
 
@@ -325,14 +325,6 @@ async function handleSubmit(e) {
 
   if (!file || !title || !category) {
     return showMessage("error", "Veuillez remplir tous les champs.");
-  }
-
-  if (!ALLOWED_TYPES.includes(file.type)) {
-    return showMessage("error", "Format image non supporté.");
-  }
-
-  if (file.size > MAX_FILE_SIZE) {
-    return showMessage("error", "Image trop volumineuse (max 4 Mo).");
   }
 
   const token = localStorage.getItem("token");
